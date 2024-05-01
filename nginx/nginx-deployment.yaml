@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-tizi 
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: nginx-tizi 
+  template:
+    metadata:
+      labels:
+        app: nginx-tizi 
+    spec:
+      containers:
+      - image: nginx:latest 
+        name: nginx-tizi
+        ports:
+        - containerPort: 80
